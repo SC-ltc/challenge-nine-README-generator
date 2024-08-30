@@ -1,11 +1,18 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-// Xpert assisted here
+// Assisted by Xpert Learning Assistant on where to find badges and how to render them
 function renderLicenseBadge(license) {
-  if (license === 'None'){
-    return '';
-  } else {
-    return `![License](https://img.shields.io/badge/License-${license}-blue)`
+  if (license === 'MIT License') {
+    return `![License](https://img.shields.io/badge/license-MIT-blue.svg)`;
+  } 
+  if (license === 'Apache License 2.0') {
+    return `![License](https://img.shields.io/badge/license-Apache%202.0-blue?style=flat-square.svg)`;
+  } 
+  if (license === 'GNU General Public License v3.0') {
+    return `![License](https://img.shields.io/badge/License-GNU%20GPL-blue.svg)`;
+  }
+  if (license === 'None') {
+    return ''
   }
 };
 
@@ -13,13 +20,13 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license === 'MIT License'){
-    return `[MIT License](https://choosealicense.com/licenses/mit/)`
+    return `[MIT License](https://choosealicense.com/licenses/mit/)`;
   }
   if (license === 'Apache License 2.0'){
-    return `[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)`
+    return `[Apache License 2.0](https://choosealicense.com/licenses/apache-2.0/)`;
   }
   if (license === 'GNU General Public License v3.0'){
-    return `[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)`
+    return `[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)`;
   }
   if (license === 'None'){
     return ""
@@ -28,37 +35,39 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
+// In README syntax, you CANNOT have any spaces before certain elements like badges and links because they will NOT render correctly
+// So for lines 45 and 47, there has to be NO indentation
 function renderLicenseSection(license) {
   if (license === 'None'){
     return ''
   } else {
     return `## License
-    ${renderLicenseBadge(license)}
-    This project is covered under the ${renderLicenseLink(license)}
+This project is covered under the following license:
+
+${renderLicenseLink(license)}
     `
   }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  //template literal starts below
+  // In README syntax, you can't have any spaces before certain elements like badges and links because they will NOT render correctly
   return `# ${data.title}  
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
   
   ## Description
 
   ${data.description}
 
   ## Table of Contents
-
-  -[Description](#description)
-  -[Installation](#installation)
-  -[Usage](#usage)
-  -[Contributing](#contributing)
-  -[Tests](#tests)
-  -[Questions](#questions)
-  -[License](#license)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  - [License](#license)
 
   ## Installation
 
@@ -84,8 +93,7 @@ function generateMarkdown(data) {
   
   Email: ${data.email}
 
-  
-  ${renderLicenseSection(data.license)}
+${renderLicenseSection(data.license)}
 
 `;
 }

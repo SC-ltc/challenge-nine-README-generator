@@ -61,6 +61,7 @@ function writeToFile(fileName, data) {
 };
 
 // TODO: Create a function to initialize app
+// Assisted by Xpert Learning Assistant on how to pass the questions array to inquirer.prompt
 function init() {
     inquirer.prompt(questions).then((answers) => {
         const readmepageContent = generateMarkdown(answers);
