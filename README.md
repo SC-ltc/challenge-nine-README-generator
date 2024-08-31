@@ -6,7 +6,7 @@ The objective of this assignment was to modify starter code to create a README f
 
 ## Link to the video demonstration of this project
 
-To be added soon
+https://app.screencastify.com/v3/watch/H1gnANK095jcPi5P4VvE
 
 ## Link to the repository for this project
 
